@@ -7,6 +7,8 @@ public class MoveRocket : MonoBehaviour
     public bool monte;
     public float vitesse = 0.5f;
 
+    public GameObject explosion;
+
     public void JumpKeyPressed(InputAction.CallbackContext context)
     {
         if (context.performed)
@@ -41,6 +43,7 @@ public class MoveRocket : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
+        Instantiate(explosion, transform.position, Quaternion.identity);
         Destroy(gameObject);
 
         print("BOOM!!!!");
